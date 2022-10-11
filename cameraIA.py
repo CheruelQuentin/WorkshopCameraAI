@@ -9,10 +9,11 @@ from keras.models import  load_model
 import matplotlib.pyplot as plt
 import numpy as np
 from Stat import count
+from Stat import stat
 
 path = "./EmotionStat.txt"
 
-f = open(path, "w", encoding="utf-8")
+f = open(path, "a", encoding="utf-8")
 
 
 # load model
@@ -64,3 +65,5 @@ cv2.destroyAllWindows
 f.close()
 print("-----------------")
 count("EmotionStat.txt")
+print("-----------------")
+stat("EmotionStat.txt")
