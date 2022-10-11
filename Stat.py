@@ -7,7 +7,7 @@ def count(file):
             
     print("angry :", content.count("angry\n"))
     print("disgust :", content.count("disgust\n"))
-    print("retard :", content.count("retard\n"))
+    print("fear :", content.count("fear\n"))
     print("happy :", content.count("happy\n"))
     print("sad :", content.count("sad\n"))
     print("surprise :", content.count("surprise\n"))
