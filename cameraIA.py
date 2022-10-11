@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from Stat import count
 from Stat import stat
+import webbrowser
+
 
 path = "./EmotionStat.txt"
 
@@ -51,6 +53,10 @@ while True:
 
         cv2.putText(test_img, predicted_emotion, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         print(predicted_emotion)
+        if predicted_emotion == "disgust":
+            webbrowser.open("https://www.youtube.com/watch?v=kqS92AVScEU")
+            exit()
+            
         f.write(predicted_emotion)
         f.write("\n")
 
