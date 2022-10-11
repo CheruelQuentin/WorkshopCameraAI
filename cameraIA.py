@@ -8,6 +8,12 @@ from keras.utils.image_utils import load_img, img_to_array
 from keras.models import  load_model
 import matplotlib.pyplot as plt
 import numpy as np
+from Stat import count
+
+path = "./EmotionStat.txt"
+
+f = open(path, "w", encoding="utf-8")
+
 
 # load model
 model = load_model("best_model.h5")
@@ -39,10 +45,13 @@ while True:
         # find max indexed array
         max_index = np.argmax(predictions[0])
 
-        emotions = ('angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral')
+        emotions = ('angry', 'disgust', 'retard', 'happy', 'sad', 'surprise', 'neutral')
         predicted_emotion = emotions[max_index]
 
         cv2.putText(test_img, predicted_emotion, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        print(predicted_emotion)
+        f.write(predicted_emotion)
+        f.write("\n")
 
     resized_img = cv2.resize(test_img, (1000, 700))
     cv2.imshow('Facial emotion analysis ', resized_img)
@@ -52,3 +61,6 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows
+f.close()
+print("-----------------")
+count("EmotionStat.txt")
