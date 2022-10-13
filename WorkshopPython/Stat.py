@@ -1,4 +1,5 @@
 from FirebaseQuentin.connect import getEmotion
+import pandas as pd
 import time
 
 def count(file):
@@ -88,6 +89,21 @@ def StatFirebaseTime(day="", hours=""):
         print("Pourcentage de personne surprise : ", round(lstEmo.count("surprise")/len(lstEmo),1)*100,"%")
         print("Pourcentage de personne neutral : ", round(lstEmo.count("neutral")/len(lstEmo),1)*100,"%")
 
-StatFirebaseTime("2022-10-12","15")
+def StatPandas():
+    lst = []
+    lst = getEmotion()
+    df = pd.DataFrame.from_dict(lst, orient='columns')
+    print(str(df.jours)[17:19])
+    df["Day"] = str(df.jours)[6:16]
+    df["H"] = str(df.jours)[17:19]
+    df["H-m"] = str(df.jours)[17:22]
+    df["H-m-s"] = str(df.jours)[17:25]
+    df.drop(columns=['jours'])
+    print(df)
+
+
+
+StatPandas()
+#StatFirebaseTime("2022-10-12","15")
 #stat("EmotionStat.txt")
 
