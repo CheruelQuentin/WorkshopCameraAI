@@ -122,3 +122,9 @@ fear
 happy
 fear
 happy
+angry
+fear
+fear
+fear
+happy
+angry

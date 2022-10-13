@@ -62,33 +62,32 @@ while True:
             webbrowser.open("https://www.youtube.com/watch?v=kqS92AVScEU%22")
             exit()
         if predicted_emotion == "angry":
-            #print(emoji.emojize(":angry:"))
             tk.Button(text='\U0001F620', font=("", 100)).pack()        
             tk.mainloop()
         if predicted_emotion == "surprise":
-            print(emoji.emojize(":open_mouth:"))
             tk.Button(text='\U0001F62F', font=("", 100)).pack()        
             tk.mainloop()
-            exit()
+            
         if predicted_emotion == "fear":
             print(emoji.emojize(":fearful:"))
             tk.Button(text='\U0001F628', font=("", 100)).pack()        
             tk.mainloop()
-            exit()
+            
         if predicted_emotion == "happy":
             tk.Button(text='\U0001F64B', font=("", 100)).pack()        
             tk.mainloop()
-            exit()
+            
         if predicted_emotion == "sad":
             tk.Button(text='\U0001F622', font=("", 100)).pack()        
             tk.mainloop()
-            exit()
+            
         if predicted_emotion == "neutral":
-            print(emoji.emojize(":neutral_face:"))
             tk.Button(text='\U0001F610', font=("", 100)).pack()        
             tk.mainloop()
-            exit()
-
+            
+    print("-----------------")
+    StatFirebase()
+    print("-----------------")
     resized_img = cv2.resize(test_img, (1000, 700))
     cv2.imshow('Facial emotion analysis ', resized_img)
 
@@ -99,6 +98,5 @@ cap.release()
 cv2.destroyAllWindows
 f.close()
 print("-----------------")
-#count("EmotionStat.txt")
+StatFirebase()
 print("-----------------")
-#stat("EmotionStat.txt")

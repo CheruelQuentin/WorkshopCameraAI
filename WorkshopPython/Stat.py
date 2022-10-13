@@ -33,11 +33,9 @@ def StatFirebase():
     lst = []
     lstEmo = []
     lst = getEmotion()
-    print("Emotion", "Time")
     for item in lst:
         lstEmo.append(item["emotion"])
-        #print(item["emotion"],item["jours"])
-    #print(lstEmo.count("happy"))
+
     print("Pourcentage de personne happy : ", round(lstEmo.count("happy")/len(lstEmo),1)*100,"%")
     print("Pourcentage de personne disgust : ", round(lstEmo.count("disgust")/len(lstEmo),1)*100,"%")
     print("Pourcentage de personne fear : ", round(lstEmo.count("fear")/len(lstEmo),1)*100,"%")
@@ -81,13 +79,13 @@ def StatFirebaseTime(day="", hours=""):
     if not(lstEmo):
         print("Pas de stat pour ces paramètres ou pas de paramètres saisis")
     else:
-        print("Pourcentage de personne happy : ", round(lstEmo.count("happy")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne disgust : ", round(lstEmo.count("disgust")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne fear : ", round(lstEmo.count("fear")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne angry : ", round(lstEmo.count("angry")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne sad : ", round(lstEmo.count("sad")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne surprise : ", round(lstEmo.count("surprise")/len(lstEmo),1)*100,"%")
-        print("Pourcentage de personne neutral : ", round(lstEmo.count("neutral")/len(lstEmo),1)*100,"%")
+        print("Pourcentage de personne happy : ", round(lstEmo.count("happy")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne disgust : ", round(lstEmo.count("disgust")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne fear : ", round(lstEmo.count("fear")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne angry : ", round(lstEmo.count("angry")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne sad : ", round(lstEmo.count("sad")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne surprise : ", round(lstEmo.count("surprise")/len(lstEmo),2)*100,"%")
+        print("Pourcentage de personne neutral : ", round(lstEmo.count("neutral")/len(lstEmo),2)*100,"%")
 
 def StatPandas():
     lst = []
@@ -98,12 +96,13 @@ def StatPandas():
     df["H"] = str(df.jours)[17:19]
     df["H-m"] = str(df.jours)[17:22]
     df["H-m-s"] = str(df.jours)[17:25]
-    df.drop(columns=['jours'])
+    df = df.drop(columns=['jours'])
     print(df)
 
+#StatFirebaseTime("2022-10-13","14")
 
 
-StatPandas()
-#StatFirebaseTime("2022-10-12","15")
+#StatPandas()
+
 #stat("EmotionStat.txt")
 
