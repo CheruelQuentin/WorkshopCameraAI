@@ -69,7 +69,6 @@ while True:
             tk.mainloop()
             
         if predicted_emotion == "fear":
-            print(emoji.emojize(":fearful:"))
             tk.Button(text='\U0001F628', font=("", 100)).pack()        
             tk.mainloop()
             
